@@ -18,15 +18,15 @@ class ViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateLabel), userInfo: nil, repeats: true)
         // タイマーが完了するまでボタンを非活性にする
         button.isEnabled = false
-
     }
+    
     func updateLabel() {
         // 経過した時間を、現在の時刻-開始時刻で算出(秒)
         let elapsedTime = Date().timeIntervalSince1970 - startTime
         // 小数点以下を切り捨てる
-        let flooredErapsedTime = Int(floor(elapsedTime))
+        let flooredElapsedTime = Int(floor(elapsedTime))
         // 残り時間
-        let leftTime = 5 - flooredErapsedTime
+        let leftTime = 5 - flooredElapsedTime
         // ラベルに表示する残り時間
         let displayString = NSString(format: "00:%02d", leftTime) as String
         // ラベルを更新

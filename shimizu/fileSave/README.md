@@ -1,2 +1,2 @@
 Documentsにテキストを保存する。
-viewControllerでボタンを押すとdata.txtの中身が"12345"になり、
+viewControllerでボタンを押すとdata.txtの中身が"12345"になり、thirdで押すと"6789"になる。data.txtの中身はsecond画面のボタンを押すことでlabelに表示できる。

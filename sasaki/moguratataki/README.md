@@ -1,7 +1,6 @@
 MyTimer.swiftの説明
 
 ゲーム内で
-
 var mytimer = MyTimer()
 
 この様にしてMyTimerクラスのインスタンスをつくる。

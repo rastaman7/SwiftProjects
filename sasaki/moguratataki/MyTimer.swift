@@ -1,3 +1,11 @@
+//
+//  MyTimer.swift
+//  moguraMaster
+//
+//  Created by Joey Shimizu on 2019/03/22.
+//  Copyright © 2019 Joey Shimizu. All rights reserved.
+//
+
 import Foundation
 class MyTimer{
     var timer = Timer()
@@ -11,6 +19,10 @@ class MyTimer{
     func stopTimer(){
         elapsedTime = Date().timeIntervalSince1970 - startTime
         print(elapsedTime)
+    }
+    
+    func startTimer2(defaultTime:Double){
+        startTime = Date().timeIntervalSince1970 + defaultTime
     }
     
     func returnTimeDouble()-> Double{

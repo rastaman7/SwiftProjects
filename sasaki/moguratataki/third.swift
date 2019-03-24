@@ -10,7 +10,8 @@ import UIKit
 
 class third: UIViewController {
     
-    var score = 0.0
+    var total = 0.0
+    var score = 10.0
 
     @IBAction func BackPressed(){
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
@@ -21,8 +22,9 @@ class third: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scoreLabel.text = String(score)
-        let myScoreClassifier = scoreClassifier(score: self.score)
+        score = score - total
+        scoreLabel.text = "Your score: \(String(score))"
+        let myScoreClassifier = scoreClassifier(score: self.total)
         rankLabel.text = myScoreClassifier.classify()
     }
     deinit {

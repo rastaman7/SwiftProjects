@@ -24,7 +24,7 @@ class second: UIViewController {
     
     func randomUp(mogura:UIButton){
         let rand_num = Double.random(in: 1.0..<5.0)
-        mytimer[0].startTimer2(defaultTime: rand_num)
+        mytimer[mogura.tag].startTimer2(defaultTime: rand_num)
         print("Next Up: \(rand_num)")
         DispatchQueue.main.asyncAfter(deadline: .now() + rand_num){
             mogura.setImage(self.mogura1Image, for: .normal)
@@ -34,20 +34,20 @@ class second: UIViewController {
     func toThird(){
         let storyboard: UIStoryboard = self.storyboard!
         let third = storyboard.instantiateViewController(withIdentifier: "third") as! third
-        third.score = total
+        third.total = total
         self.present(third, animated: true, completion: nil)
     }
     
-    @IBOutlet weak var mogura: UIButton!
-    @IBAction func moguraPressed() {
-        if mogura.currentImage!.isEqual(mogura1Image){
-            mytimer[0].stopTimer()
+    @IBOutlet weak var mogura0: UIButton!
+    @IBAction func moguraPressed(_ sender: UIButton) {
+        if sender.currentImage!.isEqual(mogura1Image){
+            mytimer[sender.tag].stopTimer()
             print("hit!")
-            print(mytimer[0].returnTimeDouble())
-            total = total + mytimer[0].returnTimeDouble()
+            print(mytimer[sender.tag].returnTimeDouble())
+            total = total + mytimer[sender.tag].returnTimeDouble()
             print("total: \(total)")
-            mogura.setImage(mogura0Image, for: .normal)
-            randomUp(mogura: mogura)
+            sender.setImage(mogura0Image, for: .normal)
+            randomUp(mogura: sender)
             count += 1
             if count == 3{
                 toThird()
@@ -59,11 +59,12 @@ class second: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mogura0.tag = 0
         print("start game")
         for _ in 0..<1 {
             mytimer.append(MyTimer())
         }
-        randomUp(mogura: mogura)
+        randomUp(mogura: mogura0)
     }
     deinit {
         print("second being deinitialized")

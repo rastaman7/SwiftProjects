@@ -23,7 +23,7 @@ class third: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         score = score - total
-        scoreLabel.text = "Your score: \(String(score))"
+        scoreLabel.text = "スコア: \(String(score))"
         let myScoreClassifier = scoreClassifier(score: self.total)
         rankLabel.text = myScoreClassifier.classify()
     }

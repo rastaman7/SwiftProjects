@@ -39,6 +39,7 @@ class second: UIViewController {
     }
     
     @IBOutlet weak var mogura0: UIButton!
+    @IBOutlet weak var mogura1: UIButton!
     @IBAction func moguraPressed(_ sender: UIButton) {
         if sender.currentImage!.isEqual(mogura1Image){
             mytimer[sender.tag].stopTimer()
@@ -49,7 +50,7 @@ class second: UIViewController {
             sender.setImage(mogura0Image, for: .normal)
             randomUp(mogura: sender)
             count += 1
-            if count == 3{
+            if count == 5{
                 toThird()
             }
         }else{
@@ -60,11 +61,13 @@ class second: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mogura0.tag = 0
+        mogura1.tag = 1
         print("start game")
-        for _ in 0..<1 {
+        for _ in 0..<2 {
             mytimer.append(MyTimer())
         }
         randomUp(mogura: mogura0)
+        randomUp(mogura: mogura1)
     }
     deinit {
         print("second being deinitialized")

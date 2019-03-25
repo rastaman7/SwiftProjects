@@ -11,21 +11,23 @@ import UIKit
 class third: UIViewController {
     
     var total = 0.0
-    var score = 10.0
+    var score = 100.0
 
     @IBAction func BackPressed(){
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBOutlet weak var scoreLetLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var rankLetLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         score = score - total
-        scoreLabel.text = "スコア: \(String(score))"
-        let myScoreClassifier = scoreClassifier(score: self.total)
-        rankLabel.text = myScoreClassifier.classify()
+        scoreLabel.text = "\(String(format: "%.5f", score))"
+        let myScoreClassifier = scoreClassifier(score: self.score)
+        rankLabel.text = (myScoreClassifier.classify())
     }
     deinit {
         print("third being deinitialized")

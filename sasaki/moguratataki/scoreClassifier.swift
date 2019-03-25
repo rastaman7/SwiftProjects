@@ -14,12 +14,22 @@ class scoreClassifier{
     }
     
     func classify() -> String {
-        if score < 1.0 {
+        if score > 97.0 {
             return "神"
-        }else if score < 2.0 {
+        }else if score > 95.0 {
             return "超人"
-        }else if score < 3.0 {
-            return "普通"
+        }else if score > 92.0 {
+            return "ハヤブサ"
+        }else if score > 90.0 {
+            return "チーター"
+        }else if score > 87.0 {
+            return "ホース"
+        }else if score > 85.0 {
+            return "うさぎ"
+        }else if score > 75.0 {
+            return "人"
+        }else if score > 70.0 {
+            return "ペンギン"
         }else{
             return "カタツムリ"
         }

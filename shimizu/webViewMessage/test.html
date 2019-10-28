@@ -1,0 +1,14 @@
+<head>
+    <meta charset="utf-8">
+    <title>テスト</title>
+  </head>
+  <body>
+    <script>
+      function OnButtonClick() {
+          window.webkit.messageHandlers.callbackHandler.postMessage("webViewから呼び出し");
+      }
+    </script>
+ 
+    <input type="button" value="Webからネイティブにメッセージ送信" onclick="OnButtonClick();" style="width:80%;height:100px;margin:10%;font-size:36px;">
+  </body>
+</html>
